@@ -1,0 +1,30 @@
+<!--pages/today-in-history/index.wxml-->
+<view class="container">
+  <view class="header full-width">
+    <view>{{year}}年{{month}}月{{day}}日</view>
+    <view class="date" bindtap="onChangeDate">切换日期</view>
+  </view>
+  <view class="content full-width">
+    <view class="list-view">
+      <block wx:for="{{list}}" wx:key="index">
+        <navigator url="{{'/pages/history-detail/index?id=' + item.e_id}}" class="list-item">
+          <view class="item-title">{{item.title}}</view>
+          <view class="item-date">{{item.date}}</view>
+        </navigator>
+      </block>
+      <view wx:if="{{noMore}}" class="no-more">
+        没有更多啦
+      </view>
+    </view>
+  </view>
+  <view class="full-width">
+    <van-popup show="{{ show }}" position="bottom">
+      <van-datetime-picker
+        type="date"
+        value="{{ currentDate }}"
+        bind:cancel="onCancel"
+        bind:confirm="onConfirm"
+      />
+    </van-popup>
+  </view>
+</view>

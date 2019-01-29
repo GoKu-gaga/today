@@ -1,0 +1,6 @@
+<!--pages/index/index.wxml-->
+<view class="container">
+  <block wx:for="{{menus}}" wx:key="index">
+    <navigator class="menu-item" url="{{item.url}}" style="{{item.style}}">{{item.name}}</navigator>
+  </block>
+</view>

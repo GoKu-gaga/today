@@ -1,0 +1,19 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/today-in-history/index",
+    "pages/history-detail/index"
+  ],
+  "window": {
+    "backgroundColor": "#F6F6F6",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#FFF",
+    "navigationBarTitleText": "Today",
+    "navigationBarTextStyle": "black"
+  },
+  "usingComponents": {
+    "van-button": "/miniprogram_npm/vant-weapp/button/index",
+    "van-popup": "/miniprogram_npm/vant-weapp/popup/index",
+    "van-datetime-picker": "/miniprogram_npm/vant-weapp/datetime-picker/index"
+  }
+}

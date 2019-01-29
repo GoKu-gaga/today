@@ -1,0 +1,19 @@
+<!--pages/history-detail/index.wxml-->
+<view class="container">
+  <view class="content">
+    <view class="content-inner">
+      <view class="title">
+        <text>{{detail.title}}</text>
+      </view>
+      <text>{{detail.content}}</text>
+    </view>
+  </view>
+  <view class="pic-view" bindtap="onPicTap">
+    <scroll-view scroll-x >
+      <view class="pic-item" wx:for="{{detail.picUrl}}" wx:key="id">
+        <image src="{{item.url}}" lazy-load mode="aspectFill"></image>
+        <text>{{item.pic_title}}</text>
+      </view>
+    </scroll-view>
+  </view>
+</view>

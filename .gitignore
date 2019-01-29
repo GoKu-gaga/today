@@ -1,0 +1,4 @@
+miniprogram/node_modules/
+miniprogram/miniprogram_npm/
+cloudfunctions/*/node_modules
+cloudfunctions/*/config.js

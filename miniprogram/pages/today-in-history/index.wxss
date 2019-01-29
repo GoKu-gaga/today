@@ -1,0 +1,58 @@
+/* pages/today-in-history/index.wxss */
+
+.container {
+  padding-bottom: 20rpx;
+  background-color: #E8D3A9;
+}
+
+.header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 80rpx;
+  color: #FFF;
+}
+
+.date {
+  font-size: 26rpx;
+}
+
+.content {
+  flex: 1;
+}
+
+.list-view {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0 20rpx;
+}
+
+.list-item {
+  display: flex;
+  flex-direction: column;
+  border-radius: 10rpx;
+  padding: 16rpx 0;
+  box-sizing: border-box;
+  margin-top: 20rpx;
+  background-color: #fff;
+  text-align: center;
+  box-shadow: 1px 1px 5px 1px rgb(207, 207, 207);
+}
+
+.item-title {
+  font-size: 36rpx;
+  padding: 10rpx 16rpx;
+  color: #262626;
+  line-height: 40rpx;
+}
+
+.item-date {
+  font-size: 24rpx;
+  height: 30rpx;
+  line-height: 30rpx;
+  border-top: 2rpx solid #eee;
+  padding: 10rpx 16rpx 0;
+  color: #595959;
+  margin-top: 6rpx;
+}
