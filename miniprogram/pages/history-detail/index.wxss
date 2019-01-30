@@ -41,6 +41,7 @@
 }
 
 .pic-item {
+  width: 200rpx;
   display: inline-flex;
   flex-direction: column;
   justify-items: center;

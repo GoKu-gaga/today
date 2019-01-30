@@ -13,34 +13,32 @@ const COL_NAME = 'historyDetail'
 // 云函数入口函数
 exports.main = async (event, context) => {
   const eId = event.id;
-
-  const countRes = await db.collection(COL_NAME).where({
-    e_id: eId
-  }).count()
-
-  if (countRes.total === 0) {
-    const resp = await axios.get(baseUrl, {
-      params: {
-        key,
-        e_id: eId
-      }
-    }).then(res => {
-      return res.data
-    })
-
-    await db.collection(COL_NAME).add({
-      data: {
-        e_id: eId,
-        result: resp.result
-      }
-    })
-
-    return resp.result
-  }
+  console.log('eId', eId)
 
   const ret = await db.collection(COL_NAME).where({
     e_id: eId
   }).get()
 
-  return ret.data[0].result
+  if (ret.data.length > 0) {
+    return ret.data[0].result
+  }
+
+  const resp = await axios.get(baseUrl, {
+    params: {
+      key,
+      e_id: eId
+    }
+  }).then(res => {
+    return res.data
+  })
+  console.log('resp', resp)
+
+  await db.collection(COL_NAME).add({
+    data: {
+      e_id: eId,
+      result: resp.result
+    }
+  })
+
+  return resp.result
 }

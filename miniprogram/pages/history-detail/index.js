@@ -40,7 +40,13 @@ Page({
       }
     }).then(res => {
       wx.hideLoading();
-      const detail = res.result[0]
+      let detail = {
+        title: '抱歉，未找到相关信息'
+      }
+      const result = res.result;
+      if(result) {
+        detail = res.result[0]
+      }
       console.log(detail);
       this.setData({
         detail

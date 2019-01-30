@@ -1,6 +1,6 @@
 <!--pages/history-detail/index.wxml-->
 <view class="container">
-  <view class="content">
+  <view class="content" wx:if="{{detail.title || detail.content}}">
     <view class="content-inner">
       <view class="title">
         <text>{{detail.title}}</text>
@@ -8,7 +8,7 @@
       <text>{{detail.content}}</text>
     </view>
   </view>
-  <view class="pic-view" bindtap="onPicTap">
+  <view class="pic-view" bindtap="onPicTap" wx:if="{{detail.picUrl.length}}">
     <scroll-view scroll-x >
       <view class="pic-item" wx:for="{{detail.picUrl}}" wx:key="id">
         <image src="{{item.url}}" lazy-load mode="aspectFill"></image>
