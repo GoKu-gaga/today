@@ -1,0 +1,19 @@
+/* pages/dreamDetail/index.wxss */
+.container {
+  background-color: #D3D5B0;
+}
+
+.content {
+  /* flex: 1; */
+  width: 100%;
+  background-color: #FFF;
+  border-radius: 10rpx;
+  padding: 20rpx 26rpx;
+  box-sizing: border-box;
+}
+
+.detail-item {
+  margin: 10rpx 0;
+  font-size: 30rpx;
+  line-height: 50rpx;
+}

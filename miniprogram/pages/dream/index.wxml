@@ -1,0 +1,36 @@
+<!--pages/dream/index.wxml-->
+<view class="container">
+  <view class="header full-width">
+    <van-search custom-class="search-style" value="{{ searchStr }}" placeholder="请输入搜索关键词" use-action-slot bind:search="onSearch" bind:change="onSearchChange">
+      <view slot="action" class="search-btn" bind:tap="onSearch">搜索</view>
+    </van-search>
+  </view>
+
+  <view class="full-width">
+    <van-collapse class="full-width" value="{{activeNames}}" bind:change="onActiveChange">
+      <van-collapse-item title="可选分类" name="1" value="{{currentCategory.name}}">
+        <view class="category-list">
+          <block wx:for="{{categoryList}}" wx:key="id">
+            <view class="category-item" data-id="{{item.id}}" bindtap="onTagClick">
+              <van-tag size="large" color="{{currentCategory.id === item.id ? '#D3D5B0' : ''}}" plain="{{currentCategory.id !== item.id}}">{{item.name}}</van-tag>
+            </view>
+          </block>
+        </view>
+      </van-collapse-item>
+    </van-collapse>
+  </view>
+
+  <view class="result-list">
+    <block wx:for="{{resultList}}" wx:key="id">
+      <navigator class="result-item" url="{{'/pages/dreamDetail/index?id=' + item.id}}">
+        <view class="result-info">
+          <view class="result-title">{{item.title}}</view>
+          <view class="result-desc text-line-2">{{item.des}}</view>
+        </view>
+        <view class="result-jump">
+          <van-icon name="arrow" size="30px" color="#FFF" />
+        </view>
+      </navigator>
+    </block>
+  </view>
+</view>

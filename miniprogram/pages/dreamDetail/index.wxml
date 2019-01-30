@@ -1,0 +1,10 @@
+<!--pages/dreamDetail/index.wxml-->
+<view class="container pd-20">
+  <view class="content" wx:if="{{detailList.length}}">
+    <block wx:for="{{detailList}}" wx:key="index">
+      <view class="detail-item">
+        <text> - {{item}}</text>
+      </view>
+    </block>
+  </view>
+</view>

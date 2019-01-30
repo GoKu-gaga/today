@@ -28,7 +28,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 2,
+			"current": 4,
 			"list": [
 				{
 					"id": -1,
@@ -48,6 +48,20 @@
 					"name": "历史事件详情",
 					"pathName": "pages/history-detail/index",
 					"query": "id=1287",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "周公解梦",
+					"pathName": "pages/dream/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "dreamDetail",
+					"pathName": "pages/dreamDetail/index",
+					"query": "id=7a0e83d8880873d77894b2c00a7fef32",
 					"scene": null
 				}
 			]

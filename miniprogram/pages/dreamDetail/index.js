@@ -1,31 +1,44 @@
-// pages/index/index.js
-const MENUS = [{
-    name: '历史上的今天',
-    url: '/pages/today-in-history/index',
-    style: 'background-color: #E8D3A9;'
-  },
-  {
-    name: '周公解梦',
-    url: '/pages/dream/index',
-    style: 'background-color: #D3D5B0;'
-  },
-  // {name: '今日笑话'},
-  // {name: '今日趣图'}
-];
-
+// pages/dreamDetail/index.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    menus: MENUS
+    detailList: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {},
+  onLoad: function(options) {
+    wx.setNavigationBarTitle({
+      title: '加载中...',
+    });
+    this.doGetDetail(options.id);
+  },
+
+  doGetDetail: function(dreamid) {
+    wx.showLoading();
+    wx.cloud.callFunction({
+      name: 'dreamDetail',
+      data: {
+        dreamid
+      }
+    }).then(res => {
+      wx.hideLoading();
+      const {
+        title,
+        list
+      } = res.result;
+      wx.setNavigationBarTitle({
+        title: title,
+      })
+      this.setData({
+        detailList: list
+      });
+    })
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成

@@ -1,6 +1,8 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/dreamDetail/index",
+    "pages/dream/index",
     "pages/today-in-history/index",
     "pages/history-detail/index"
   ],
@@ -13,7 +15,12 @@
   },
   "usingComponents": {
     "van-button": "/miniprogram_npm/vant-weapp/button/index",
+    "van-collapse": "/miniprogram_npm/vant-weapp/collapse/index",
+    "van-collapse-item": "/miniprogram_npm/vant-weapp/collapse-item/index",
+    "van-icon": "/miniprogram_npm/vant-weapp/icon/index",
+    "van-datetime-picker": "/miniprogram_npm/vant-weapp/datetime-picker/index",
     "van-popup": "/miniprogram_npm/vant-weapp/popup/index",
-    "van-datetime-picker": "/miniprogram_npm/vant-weapp/datetime-picker/index"
+    "van-search": "/miniprogram_npm/vant-weapp/search/index",
+    "van-tag": "/miniprogram_npm/vant-weapp/tag/index"
   }
 }
