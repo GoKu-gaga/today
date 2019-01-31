@@ -27,6 +27,9 @@ Page({
       day
     });
     this.doGetList();
+    wx.showShareMenu({
+      withShareTicket: true
+    });
   },
 
   /**
@@ -63,6 +66,16 @@ Page({
       show: false
     });
     this.doGetList();
+  },
+
+  /**
+   * 监听用户分享
+   */
+  onShareAppMessage: function (res) {
+    return {
+      title: '快来看看历史上的今天发生的事件',
+      path: '/pages/today-in-history/index'
+    }
   },
 
   /**

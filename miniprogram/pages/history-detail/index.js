@@ -13,6 +13,9 @@ Page({
    */
   onLoad: function (options) {
     this.doGetDetail(options.id);
+    wx.showShareMenu({
+      withShareTicket: true
+    });
   },
 
   /**
@@ -42,7 +45,7 @@ Page({
       wx.hideLoading();
       let detail = {
         title: '抱歉，未找到相关信息'
-      }
+      };
       const result = res.result;
       if(result) {
         detail = res.result[0]
@@ -52,5 +55,16 @@ Page({
         detail
       })
     });
+  },
+
+  /**
+   * 监听用户分享
+   */
+  onShareAppMessage: function (res) {
+    const detail = this.data.detail;
+    return {
+      title: `${detail.title}`,
+      path: '/pages/history-detail/index'
+    }
   }
 })

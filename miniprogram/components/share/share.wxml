@@ -1,0 +1,6 @@
+<!--components/share.wxml-->
+<view class="share">
+  <van-button custom-class="share-btn" round plain open-type="share">
+    <van-icon class="share-icon" name="share" size="26px" color="#E8D3A9" />
+  </van-button>
+</view>

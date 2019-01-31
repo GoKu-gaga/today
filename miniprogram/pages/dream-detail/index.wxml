@@ -7,4 +7,5 @@
       </view>
     </block>
   </view>
+  <t-share />
 </view>

@@ -1,0 +1,20 @@
+/* components/share.wxss */
+
+.share {
+  position: fixed;
+  bottom: 30rpx;
+  right: 30rpx;
+}
+
+.share-btn {
+  width: 100rpx !important;
+  height: 100rpx !important;
+}
+
+.share-icon {
+  display: flex;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

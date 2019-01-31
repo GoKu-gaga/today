@@ -3,4 +3,5 @@
   <block wx:for="{{menus}}" wx:key="index">
     <navigator class="menu-item" url="{{item.url}}" style="{{item.style}}">{{item.name}}</navigator>
   </block>
+  <t-share />
 </view>

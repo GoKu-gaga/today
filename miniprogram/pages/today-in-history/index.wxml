@@ -24,4 +24,5 @@
       />
     </van-popup>
   </view>
+  <!-- <t-share /> -->
 </view>

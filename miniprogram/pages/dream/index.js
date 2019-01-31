@@ -17,6 +17,19 @@ Page({
    */
   onLoad: function(options) {
     this.doGetCategory();
+    wx.showShareMenu({
+      withShareTicket: true
+    });
+  },  
+  
+  /**
+   * 监听用户分享
+   */
+  onShareAppMessage: function (res) {
+    return {
+      title: '来看看关于梦的解析',
+      path: '/pages/dream/index'
+    }
   },
 
   /**

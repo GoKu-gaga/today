@@ -9,8 +9,11 @@ const MENUS = [{
     url: '/pages/dream/index',
     style: 'background-color: #D3D5B0;'
   },
-  // {name: '今日笑话'},
-  // {name: '今日趣图'}
+  {
+    name: '更多功能正在开发中',
+    url: '',
+    style: 'background-color: #9DC9AC;'
+  }
 ];
 
 Page({
@@ -20,5 +23,15 @@ Page({
    */
   data: {
     menus: MENUS
+  },
+
+  /**
+   * 监听用户分享
+   */
+  onShareAppMessage: function (res) {
+    return {
+      title: '我发现一个好玩的小工具集',
+      path: '/pages/index/index'
+    }
   }
 })

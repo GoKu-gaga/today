@@ -16,4 +16,5 @@
       </view>
     </scroll-view>
   </view>
+  <t-share />
 </view>
