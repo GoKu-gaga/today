@@ -10,7 +10,7 @@
     "backgroundColor": "#F6F6F6",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#FFF",
-    "navigationBarTitleText": "Today",
+    "navigationBarTitleText": "口袋工具",
     "navigationBarTextStyle": "black"
   },
   "usingComponents": {

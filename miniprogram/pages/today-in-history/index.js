@@ -29,18 +29,27 @@ Page({
     this.doGetList();
   },
 
+  /**
+   * 监听日期选择
+   */
   onChangeDate: function() {
     this.setData({
       show: true
     });
   },
 
+  /**
+   * 监听取消
+   */
   onCancel: function() {
     this.setData({
       show: false
     });
   },
 
+  /**
+   * 监听确定
+   */
   onConfirm: function(event) {
     console.log(event.detail)
     const date = new Date(event.detail);
