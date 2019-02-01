@@ -9,3 +9,4 @@
   </view>
   <t-share />
 </view>
+<van-toast id="van-toast" />

@@ -1,4 +1,6 @@
 // pages/dream/index.js
+import Toast from '../../miniprogram_npm/vant-weapp/toast/toast';
+
 Page({
 
   /**
@@ -9,7 +11,7 @@ Page({
     currentCategory: {},
     searchStr: '',
     activeNames: ['1'],
-    resultList: []
+    resultList: null
   },
 
   /**
@@ -40,20 +42,27 @@ Page({
     this.setData({
       activeNames: []
     });
-    if (searchStr) {
-      wx.cloud.callFunction({
-        name: 'dreamQuery', 
-        data: {
-          q: searchStr,
-          cid: currentCategory.id || ''
-        }
-      }).then(res => {
-        const list = res.result;
-        this.setData({
-          resultList: list
-        })
-      })
+    if (!searchStr) {
+      Toast('请输入关键词');
+      return ;
     }
+    Toast.loading({
+      mask: true,
+      message: '搜索中...'
+    });
+    wx.cloud.callFunction({
+      name: 'dreamQuery', 
+      data: {
+        q: searchStr,
+        cid: currentCategory.id || ''
+      }
+    }).then(res => {
+      const list = res.result;
+      this.setData({
+        resultList: list || []
+      });
+      Toast.clear();
+    })
   },
 
   /**
@@ -86,7 +95,7 @@ Page({
     } = this.data;
     if (current && id === current.id) {
       this.setData({
-        currentCategory: null
+        currentCategory: {}
       });
       return ;
     }

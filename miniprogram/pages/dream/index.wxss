@@ -76,3 +76,8 @@
   justify-content: center;
   background-color: #D3D5B0;
 }
+
+.no-result {
+  margin-top: 40rpx;
+  font-size: 30rpx;
+}

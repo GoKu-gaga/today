@@ -22,6 +22,7 @@
     "van-popup": "/miniprogram_npm/vant-weapp/popup/index",
     "van-search": "/miniprogram_npm/vant-weapp/search/index",
     "van-tag": "/miniprogram_npm/vant-weapp/tag/index",
+    "van-toast": "/miniprogram_npm/vant-weapp/toast/index",
     "t-share": "/components/share/share"
   }
 }

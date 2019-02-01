@@ -1,4 +1,6 @@
 // pages/today-in-history/index.js
+import Toast from '../../miniprogram_npm/vant-weapp/toast/toast';
+
 Page({
 
   /**
@@ -54,7 +56,6 @@ Page({
    * 监听确定
    */
   onConfirm: function(event) {
-    console.log(event.detail)
     const date = new Date(event.detail);
     const year = date.getFullYear();
     const month = date.getMonth() + 1;
@@ -71,7 +72,7 @@ Page({
   /**
    * 监听用户分享
    */
-  onShareAppMessage: function (res) {
+  onShareAppMessage: function(res) {
     return {
       title: '快来看看历史上的今天发生的事件',
       path: '/pages/today-in-history/index'
@@ -86,9 +87,10 @@ Page({
       month,
       day
     } = this.data;
-    wx.showLoading({
-      title: '加载中',
-    })
+    Toast.loading({
+      mask: true,
+      message: '加载中...'
+    });
     wx.cloud.callFunction({
         name: 'todayInHistory',
         data: {
@@ -102,6 +104,8 @@ Page({
         this.setData({
           list
         });
+
+        Toast.clear();
       })
       .catch(console.error)
   }

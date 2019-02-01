@@ -1,4 +1,6 @@
 // pages/history-detail/index.js
+import Toast from '../../miniprogram_npm/vant-weapp/toast/toast';
+
 Page({
 
   /**
@@ -33,8 +35,9 @@ Page({
    * 执行获取详情
    */
   doGetDetail: function (id) {
-    wx.showLoading({
-      title: '加载中',
+    Toast.loading({
+      mask: true,
+      message: '加载中...'
     });
     wx.cloud.callFunction({
       name: 'historyDetail',
@@ -53,7 +56,9 @@ Page({
       console.log(detail);
       this.setData({
         detail
-      })
+      });
+
+      Toast.clear();      
     });
   },
 

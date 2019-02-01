@@ -1,4 +1,6 @@
 // pages/dreamDetail/index.js
+import Toast from '../../miniprogram_npm/vant-weapp/toast/toast';
+
 Page({
 
   /**
@@ -25,14 +27,20 @@ Page({
    * 执行获取详情
    */
   doGetDetail: function(dreamid) {
-    wx.showLoading();
+    Toast.loading({
+      mask: true,
+      message: '加载中...'
+    });
     wx.cloud.callFunction({
       name: 'dreamDetail',
       data: {
         dreamid
       }
     }).then(res => {
-      wx.hideLoading();
+      if(!res.result) {
+        Toast('未找到对应信息');
+        return ;
+      }
       const {
         title,
         list
@@ -44,6 +52,8 @@ Page({
       this.setData({
         detailList: list
       });
+
+      Toast.clear();  
     })
   },
 

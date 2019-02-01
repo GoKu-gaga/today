@@ -20,7 +20,7 @@
     </van-collapse>
   </view>
 
-  <view class="result-list">
+  <view class="result-list" wx:if="{{resultList.length}}">
     <block wx:for="{{resultList}}" wx:key="id">
       <navigator class="result-item" url="{{'/pages/dream-detail/index?id=' + item.id}}">
         <view class="result-info">
@@ -33,5 +33,8 @@
       </navigator>
     </block>
   </view>
-  <!-- <t-share /> -->
+  <view class="no-result" wx:if="{{resultList && resultList.length === 0}}">
+    抱歉, 未找到相关信息, 请更换关键词或分类。
+  </view>
 </view>
+<van-toast id="van-toast" />
