@@ -15,33 +15,29 @@ exports.main = async(event, context) => {
     day
   } = event
 
-  const countRes = await db.collection('todayInHistory').where({
-    date: `${month}/${day}`
-  }).count()
-
-  if (countRes.total === 0) {
-    const resp = await axios.get(baseUrl, {
-      params: {
-        key,
-        date: `${month}/${day}`
-      }
-    }).then(res => {
-      return res.data
-    })
-    
-    await db.collection('todayInHistory').add({
-      data: {
-        date: `${month}/${day}`,
-        result: resp.result
-      }
-    })
-
-    return resp.result
-  }
-
   const ret = await db.collection('todayInHistory').where({
     date: `${month}/${day}`
   }).get()
 
-  return ret.data[0].result
+  if (ret.data.length > 0) {
+    return ret.data[0].result
+  }
+
+  const resp = await axios.get(baseUrl, {
+    params: {
+      key,
+      date: `${month}/${day}`
+    }
+  }).then(res => {
+    return res.data
+  })
+  
+  await db.collection('todayInHistory').add({
+    data: {
+      date: `${month}/${day}`,
+      result: resp.result
+    }
+  })
+
+  return resp.result
 }

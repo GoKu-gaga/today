@@ -14,7 +14,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.doGetDetail(options.id);
+    this.id = options.id;
+    this.doGetDetail();
     wx.showShareMenu({
       withShareTicket: true
     });
@@ -34,7 +35,7 @@ Page({
   /**
    * 执行获取详情
    */
-  doGetDetail: function (id) {
+  doGetDetail: function () {
     Toast.loading({
       mask: true,
       message: '加载中...'
@@ -42,10 +43,9 @@ Page({
     wx.cloud.callFunction({
       name: 'historyDetail',
       data: {
-        id
+        id: this.id
       }
     }).then(res => {
-      wx.hideLoading();
       let detail = {
         title: '抱歉，未找到相关信息'
       };
@@ -69,7 +69,7 @@ Page({
     const detail = this.data.detail;
     return {
       title: `${detail.title}`,
-      path: '/pages/history-detail/index'
+      path: `/pages/history-detail/index?id=${this.id}`
     }
   }
 })

@@ -17,7 +17,8 @@ Page({
     wx.setNavigationBarTitle({
       title: '加载中...',
     });
-    this.doGetDetail(options.id);
+    this.id = options.id;
+    this.doGetDetail();
     wx.showShareMenu({
       withShareTicket: true
     });
@@ -26,7 +27,7 @@ Page({
   /**
    * 执行获取详情
    */
-  doGetDetail: function(dreamid) {
+  doGetDetail: function() {
     Toast.loading({
       mask: true,
       message: '加载中...'
@@ -34,7 +35,7 @@ Page({
     wx.cloud.callFunction({
       name: 'dreamDetail',
       data: {
-        dreamid
+        dreamid: this.id
       }
     }).then(res => {
       if(!res.result) {
@@ -63,7 +64,7 @@ Page({
   onShareAppMessage: function(res) {
     return {
       title: `这是关于梦见 ${this.title} 的解析`,
-      path: '/pages/dream-detail/index'
+      path: `/pages/dream-detail/index?id=${this.id}`
     }
   }
 })
