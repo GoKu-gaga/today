@@ -24,5 +24,6 @@
     "van-tag": "/miniprogram_npm/vant-weapp/tag/index",
     "van-toast": "/miniprogram_npm/vant-weapp/toast/index",
     "t-share": "/components/share/share"
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }

@@ -2,7 +2,7 @@
 <view class="container">
   <view class="header full-width">
     <view>{{year}}年{{month}}月{{day}}日</view>
-    <!-- <view class="date" bindtap="onChangeDate">切换日期</view> -->
+    <view class="date" bindtap="onChangeDate">切换日期</view>
   </view>
   <view class="content full-width">
     <view class="list-view">
@@ -14,16 +14,15 @@
       </block>
     </view>
   </view>
-  <view class="full-width">
-    <van-popup show="{{ show }}" position="bottom">
-      <van-datetime-picker
-        type="date"
-        value="{{ currentDate }}"
-        bind:cancel="onCancel"
-        bind:confirm="onConfirm"
-      />
-    </van-popup>
-  </view>
-  <!-- <t-share /> -->
+</view>
+<view class="full-width">
+  <van-popup show="{{ show }}" position="bottom">
+    <van-datetime-picker
+      type="date"
+      value="{{ currentDate }}"
+      bind:cancel="onCancel"
+      bind:confirm="onConfirm"
+    />
+  </van-popup>
 </view>
 <van-toast id="van-toast" />
